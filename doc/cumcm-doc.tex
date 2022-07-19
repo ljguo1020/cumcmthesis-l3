@@ -1,0 +1,233 @@
+\documentclass{cumcmdoc}
+\usepackage{xeCJKfntef, xpinyin}
+\usepackage{graphicx}
+\usepackage{array,tabularx}
+\usepackage{tabularray}
+\title{\textcolor{MaterialIndigo800}{%
+  \textbf{cumcmthesis: \href{http://www.mcm.edu.cn}{全国大学生数学建模竞赛} \LaTeX \xpinyin[font=\sffamily,format=\color{MaterialIndigo800}]{模}{mu2}板}}}
+\author{郭李军}
+\date{2022/07/15\quad v0.1.1%
+  \thanks{%
+    \url{https://github.com/ljguo1020/cumcmthesis-l3}
+  }
+}
+\begin{document}
+\maketitle
+\vskip 1cm%
+\begin{center}
+  \includegraphics[width = 0.45\textwidth]{cumcm-logo.png}
+\end{center}
+\newpage
+\tableofcontents
+\section{介绍}
+本模板为\textbf{全国大学生数学建模竞赛}\LaTeX{}论文（非官方）模板，旨在帮助建模选手能够摆脱 word 的烦恼，更加轻松的编写论文.
+
+目前网上可以找到的较老的模板：
+\begin{enumerate}
+  \item LaTeXstudio \href{https://github.com/latexstudio/CUMCMThesis}{CUMCMThesis} 
+  \item sikouhjw \href{https://github.com/sikouhjw/JXUSTmodeling}{JXUSTmodeling}
+\end{enumerate}
+本模板借鉴了前面两位前辈的不少劳动成果，并在其基础之上优化了一下接口，使代码看起来更加美观，暂时没有什么新功能。
+\subsection{\LaTeX{}入门}
+网上的入门教程多如牛毛，这里我只推荐 \href{https://www.ctan.org/pkg/lshort-zh-cn}{lshort-zh-cn} 这本手册，另外安装问题可以阅读 \href{https://www.ctan.org/pkg/install-latex-guide-zh-cn}{install-latex-guide-zh-cn}。
+\subsection{安装及使用}
+请使用\cls{texlive}最新版本，然后将 \cls{cumcmthesis.cls} 放在您的工作文件夹内，然后在新建文件 \cls{mian.tex} 写下如下内容：
+\begin{latexcode}[deletetexcs={\documentclass},
+  moretexcs={\chapter},morekeywords={\documentclass},
+  emph={[2]document}]
+  % main.tex
+  \documentclass{cumcmthesis}
+  \begin{document}
+    \maketitle
+    \hello \LaTeX{}!
+  \end{document}
+\end{latexcode}
+然后在命令行使用
+\begin{shellcode}[morekeywords={xelatex}]
+  xelatex main.tex
+\end{shellcode}
+即可得到一份简单的编译结果。
+
+\section{接口}
+\begin{function}[added = 2022-07-15]{\cumcmsetup}
+  \begin{ccnusyntax}[emph={[1]cumcmsetup}]
+    \cumcmsetup(*\marg{键值列表}*)
+  \end{ccnusyntax}
+该命令用在导言区，用于设置模板的一些参数，具体如下
+\end{function}
+\begin{function}[added = 2022-07-15]{titlepage}
+  \begin{ccnusyntax}[emph={[1]titlepage}]
+    titlepage = (*\TTF*)
+  \end{ccnusyntax}
+  用于控制是否显示承诺书和编号页，默认是显示。
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info}
+  \begin{ccnusyntax}[emph={[1]info}]
+    info = (*\marg{键值列表}*)
+    info/(*\meta{key}*) = (*\meta{value}*)
+  \end{ccnusyntax}
+  用于设置信息
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/tihao}
+  \begin{ccnusyntax}[emph={[1]tihao}]
+    tihao =  (*\marg{题号}*)
+  \end{ccnusyntax}
+  用于设置题号
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/baominghao}
+  \begin{ccnusyntax}[emph={[1]baominghao}]
+    baominghao =  (*\marg{报名号}*)
+  \end{ccnusyntax}
+  用于设置报名号
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/school}
+  \begin{ccnusyntax}[emph={[1]school}]
+    school =  (*\marg{学校名称}*)
+  \end{ccnusyntax}
+  用于设置学校名称
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/member}
+  \begin{ccnusyntax}[emph={[1]member}]
+    member =  (*\marg{memberA,memberB,memberC}*)
+  \end{ccnusyntax}
+  用于设置3个队员，应该用西文逗号分隔
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/supervisor}
+  \begin{ccnusyntax}[emph={[1]supervisor}]
+    supervisor =  (*\marg{指导老师}*)
+  \end{ccnusyntax}
+  用于设置指导老师
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/date}
+  \begin{ccnusyntax}[emph={[1]date}]
+    date =  (*\marg{年,月,日}*)
+  \end{ccnusyntax}
+  用于设置日期，默认为当前日期
+\end{function}
+
+\begin{function}[added = 2022-07-15]{info/title}
+  \begin{ccnusyntax}[emph={[1]title}]
+    title =  (*\marg{论文题目}*)
+  \end{ccnusyntax}
+  用于设置论文题目，默认为\textbf{全国大学生数学建模竞赛 \LaTeX{} 论文模板}
+\end{function}
+
+\begin{function}[added = 2022-07-15]{abstract}
+  \begin{ccnusyntax}[emph={[1]abstract}]
+    \begin{abstract}
+      ...
+    \end{abstract}
+  \end{ccnusyntax}
+  摘要环境
+\end{function}
+
+\begin{function}[added = 2022-07-15]{\keywords}
+  \begin{ccnusyntax}[emph={[1]keywords}]
+    \keywords(*\marg{关键词}*)
+  \end{ccnusyntax}
+  关键词
+\end{function}
+
+\begin{function}[added = 2022-07-15]{python}
+  \begin{ccnusyntax}[emph={[1]python}]
+    \begin{python}
+      ...
+    \end{python}
+  \end{ccnusyntax}
+  python代码抄录环境
+\end{function}
+
+\begin{function}[added = 2022-07-15]{matlab}
+  \begin{ccnusyntax}[emph={[1]matlab}]
+    \begin{matlab}
+      ...
+    \end{matlab}
+  \end{ccnusyntax}
+  matlab代码抄录环境
+\end{function}
+
+\section{使用样例}
+\begin{latexcode}[deletetexcs={\documentclass},
+  moretexcs={\chapter},morekeywords={\documentclass,\cumcmsetup},
+  emph={[2]document}]
+  \documentclass{cumcmthesis}
+  \usepackage{zhlipsum}
+  \cumcmsetup
+  {
+    info={
+     tihao = {A},
+     baominghao = {1123201},
+     school = {中国科学技术大学},
+     member = {张三,李四,王二麻子},
+     supervisor = {王有明}, 
+    }
+  }
+  \begin{document}
+  
+  \maketitle
+  
+  \begin{abstract}
+    \zhlipsum[1]
+  \end{abstract}
+  \keywords{关键词1；关键词2；关键词3；关键词4}
+  
+  \newpage
+  
+  \section{模板}
+  
+  \begin{figure}[h]
+    \centering
+    \includegraphics[width=0.45\textwidth]{example-image-a}
+    \caption{这是一张图片}\label{fig1}
+  \end{figure}
+  
+  \begin{table}[h]
+    \centering
+    \caption{这是一个表格}\label{tab1}
+    \begin{tabular}{ccccc}
+      \toprule
+      元素1-1 & 元素1-2 & 元素1-3\\
+      \midrule
+      元素2-1 & 元素2-2 & 元素2-3\\
+      元素3-1 & 元素3-2 & 元素3-3\\
+      \bottomrule
+    \end{tabular}
+  \end{table}
+
+  \subsection{代码}
+  \begin{matlab}
+    x = 0:pi/10:2*pi;
+    y1 = sin(x);
+    y2 = sin(x-0.25);
+    y3 = sin(x-0.5);
+  
+    figure
+    plot(x,y1,'g',x,y2,'b--o',x,y3,'c*')
+  \end{matlab}
+  
+  \end{document} 
+\end{latexcode}
+
+\section{已载入宏包}
+本模板为用户默认载入了如表\ref{tab1}中所展示的宏包，无需重复加载
+\begin{table}[h]
+\centering
+\caption{模板预载入宏包}\label{tab1}
+\begin{tabularx}{\textwidth}%
+{*{6}{>{\centering\arraybackslash}X}}
+\toprule
+geometry    &    graphicx   &   xeCJKfntef  &    calc      &    tabularray  &   tikz     \\
+listings    &    caption    &   subcaption  &    amsmath    &    amsfonts   &   amssymb   \\
+float       &    booktabs   &   multirow    &    url        &    enumitem   &   etoolbox   \\
+hyperref    &    amsthm     &               &               &               &               \\
+\bottomrule
+\end{tabularx}
+\end{table}
+\end{document}

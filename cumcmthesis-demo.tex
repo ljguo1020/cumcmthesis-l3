@@ -1,0 +1,60 @@
+\documentclass{cumcmthesis}
+\usepackage{xparse,zhlipsum}
+\cumcmsetup
+{
+  info={
+   tihao = {A},
+   baominghao = {1123201},
+   school = {中国科学技术大学},
+   member = {张三,李四,王二麻子},
+   supervisor = {王有明}, 
+  }
+}
+
+
+\begin{document}
+
+
+\maketitle
+
+\begin{abstract}
+  \zhlipsum[1]
+\end{abstract}
+\keywords{关键词1；关键词2；关键词3；关键词4}
+
+\newpage
+
+\section{模板}
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=0.45\textwidth]{example-image-a}
+  \caption{这是一张图片}\label{fig1}
+\end{figure}
+
+\begin{table}[h]
+  \centering
+  \caption{这是一个表格}\label{tab1}
+  \begin{tabular}{ccccc}
+    \toprule
+    元素1-1 & 元素1-2 & 元素1-3\\
+    \midrule
+    元素2-1 & 元素2-2 & 元素2-3\\
+    元素3-1 & 元素3-2 & 元素3-3\\
+    \bottomrule
+  \end{tabular}
+  
+\end{table}
+\subsection{代码}
+\begin{matlab}
+  x = 0:pi/10:2*pi;
+  y1 = sin(x);
+  y2 = sin(x-0.25);
+  y3 = sin(x-0.5);
+
+  figure
+  plot(x,y1,'g',x,y2,'b--o',x,y3,'c*')
+\end{matlab}
+
+
+\end{document}

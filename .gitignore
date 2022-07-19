@@ -8,7 +8,7 @@ doc/cumcm-doc.hd
 doc/cumcm-doc.idx
 doc/cumcm-doc.log
 doc/cumcm-doc.out
-doc/cumcm-doc.pdf
+
 
 ## Core latex/pdflatex auxiliary files:
 *.aux

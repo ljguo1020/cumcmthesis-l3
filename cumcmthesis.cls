@@ -12,12 +12,12 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 %载入必要宏包
 \RequirePackage{
   geometry    ,    graphicx   ,   xeCJKfntef ,
-  calc        ,    tabularray ,   tikz       ,
+  calc        ,    makecell   ,   tikz       ,
   listings    ,    caption    ,   subcaption ,
   amsmath     ,    amsfonts   ,   amssymb    ,
   float       ,    booktabs   ,   multirow   ,
   url         ,    enumitem   ,   etoolbox   ,
-  hyperref    ,    amsthm
+  hyperref    ,    amsthm     ,   multicol   ,
 }
 %设置页边距
 \geometry{margin=2.5cm}
@@ -113,13 +113,15 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
     \begin{center}\songti\zihao{4}
     \hspace*{-7.7em}赛区评阅记录（可供赛区评阅时使用）：\par\vspace*{-.05ex}
-    \begin{tblr}{|Q[c,1.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|}
+    % \begin{tblr}{|Q[c,1.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|}
+      \begin{tabular}{|p{1.8em}|*{6}{p{2.8em}|}}
       \hline 
-       {评\\[-4pt]阅\\[-2pt]人} & & & & & & \\
+       \makecell[c]{评\\[-4pt]阅\\[-2pt]人} & & & & & & \\
        \hline 
-       {备\\[-4pt]注} & & & & & & \\
+       \makecell[c]{备\\[-4pt]注} & & & & & & \\
        \hline
-    \end{tblr}   
+      \end{tabular}
+    % \end{tblr}   
     \end{center}
 
     \vspace*{7ex}\hspace*{5em}

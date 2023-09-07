@@ -18,6 +18,7 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   float       ,    booktabs   ,   multirow   ,
   url         ,    enumitem   ,   etoolbox   ,
   hyperref    ,    amsthm     ,   multicol   ,
+  setspace
 }
 %设置页边距
 \geometry{margin=2.5cm}
@@ -37,58 +38,63 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
   \cs_new:Npn \cumcm_commit: {
     \titlepage 
     \linespread{1.5}\selectfont
-    \noindent 赛区评阅编号（由赛区组委会填写）：\\[-8pt] 
-    \noindent\rule[5pt]{\textwidth}{1pt}\par\vspace*{-3ex} 
-
+    \noindent\zihao{4} 赛区评阅编号（由赛区组委会填写）\,：\\[-10pt] 
+    \noindent\rule[5pt]{\the\dimexpr\textwidth-.6cm\relax}{1pt}\par\vspace*{-3.15ex} 
     \begin{center}
-    {\zihao{-3}\heiti{\bfseries\int_use:N \c_sys_year_int}年高教社杯全国大学生数学建模竞赛} \par \vspace*{2ex}
-    {\zihao{3}\bfseries\songti\makebox[5em]{承\hfill 诺\hfill 书} \par}
+    {\zihao{-3}\hspace*{.74cm}\heiti{\bfseries\int_use:N \c_sys_year_int}年高教社杯全国大学生数学建模竞赛} \par \vspace*{1.45ex}
+    {\hspace*{.15cm}\zihao{3}\bfseries\songti\makebox[5em]{承\hfill 诺\hfill 书} \par}
     \end{center}\par
-
-    {\songti\zihao{-4} 
-      我们仔细阅读了《全国大学生数学建模竞赛章程》和《全国大学生数学建模竞赛参赛规则》（以下简称 “竞赛章程和参赛规则”，可从\,\url{http://www.mcm.edu.cn}{}下载）。\par 
+    \vspace*{-.1cm}
+    \begin{spacing}{1.6}
+      \parindent = 0.74cm%
+      我们仔细阅读了《全国大学生数学建模竞赛章程》和《全国大学生数学建模竞赛参赛规则》（以下简称\,\,\: “竞赛章程和参赛规则”，可从\,http://www.mcm.edu.cn下载）。\par 
       我们完全清楚，在竞赛开始后参赛队员不能以任何方式，包括电话、电子邮件、“贴吧”、QQ群、微信群等，与队外的任何人（包括指导教师）交流、讨论与赛题有关的问题；无论主动参与讨论还是被动接收讨论信息都是严重违反竞赛纪律的行为。\par 
-      % 我们完全清楚，在竞赛中必须合法合规地使用文献资料和软件工具，不能有任何侵犯知识产权的行为。否则我们将失去评奖资格，并可能受到严肃处理。
-    }\par 
+    \end{spacing}
+    \vspace*{.1cm}
+    \begin{spacing}{1.6}
+      \bfseries\parindent = 0.74cm%
+      我们以中国大学生名誉和诚信郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。\par
+    \end{spacing}
+    \vspace*{.1cm}
+    \begin{spacing}{1.6}
+      \parindent = 0.74cm%
+      我们授权全国大学生数学建模竞赛组委会，可将我们的论文以任何形式进行公开展示（包括进行网上公示，在书籍、期刊和其他媒体进行正式或非正式发表等）。\par\vspace*{5ex - .1cm}
+    \end{spacing}
 
-    {\songti\zihao{-4}\bfseries
-      我们以中国大学生名誉和诚信郑重承诺，严格遵守竞赛章程和参赛规则，以保证竞赛的公正、公平性。如有违反竞赛章程和参赛规则的行为，我们将受到严肃处理。
-    }\par 
+    \begin{spacing}{1.6}
+      \zihao{-4}\parindent = 0.74cm%
+      我们参赛选择的题号（从A/B/C/D/E中选择一项填写）：
+      \CJKunderline{\hspace*{1em}\tl_use:N \l_cumcm_tihao_tl\hfill\makebox[0.66em]{}}\par
+      我们的报名参赛队号（12位数字全国统一编号）：
+      \CJKunderline{\hspace*{1em}\tl_use:N \l_cumcm_baominghao_tl\hfill\makebox[0.66em]{}}\par
+      参赛学校（完整的学校全称，不含院系名）：
+      \CJKunderline{\hspace*{1em}\tl_use:N \l_cumcm_school_tl\hfill\makebox[0.66em]{}}\par\vspace*{2.5ex}
+    \end{spacing}
 
-    {\songti\zihao{-4}
-      我们授权全国大学生数学建模竞赛组委会，可将我们的论文以任何形式进行公开展示（包括进行网上公示，在书籍、期刊和其他媒体进行正式或非正式发表等）。
-    }\par\vspace*{5ex}
 
-    {\zihao{-4}
-    我们参赛选择的题号（从A/B/C/D/E中选择一项填写）：
-    \CJKunderline{\hspace*{1em}\tl_use:N \l_cumcm_tihao_tl\hfill\makebox[0.66em]{}}\par
-    我们的报名参赛队号（12位数字全国统一编号）：
-    \CJKunderline{\hspace*{1em}\tl_use:N \l_cumcm_baominghao_tl\hfill\makebox[0.66em]{}}\par
-    参赛学校（完整的学校全称，不含院系名）：
-    \CJKunderline{\hspace*{1em}\tl_use:N \l_cumcm_school_tl\hfill\makebox[0.66em]{}}
-    }\par\vspace*{2ex}
-    
-    {\zihao{-4}\songti\hbox_set:Nn \l_tmpa_box{参赛队员（打印并签名）：\mbox{\hspace{1em}}1.}
+    \begin{spacing}{1.6}
+      \zihao{-4}\parindent = 0.74cm%
+      \hbox_set:Nn \l_tmpa_box{参赛队员（打印并签名）：\mbox{\hspace{1em}}1.}
       参赛队员（打印并签名）：
       \begin{minipage}[t]{\textwidth - \box_wd:N \l_tmpa_box-0.06cm}
-        1.\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_member_clist{1}\hfill\makebox[0.46em]{}}\par
-        2.\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_member_clist{2}\hfill\makebox[0.46em]{}}\par
+        1.\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_member_clist{1}\hfill\makebox[0.46em]{}}\par\vspace*{.37cm}
+        2.\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_member_clist{2}\hfill\makebox[0.46em]{}}\par\vspace*{.37cm}
         3.\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_member_clist{3}\hfill\makebox[0.46em]{}}
-      \end{minipage}
-    }\par\vspace*{3ex}
+      \end{minipage}\par\vspace*{3ex + .22cm}
+    \end{spacing}
 
-    {\zihao{-4}\songti
+    {\zihao{-4}\songti\parindent = 0.74cm%
     指导教师或指导教师组负责人（打印并签名）：
     \CJKunderline{\hspace*{1em}\tl_use:N\l_cumcm_supervisor_tl\hfill\makebox[0.66em]{}}
-    }\par\vspace*{2ex}
+    }\par\vspace*{-.07cm}
     
-    {\kaishu\zihao{-4}
+    {\kaishu\zihao{-4}\parindent = 0.74cm%
     \hspace*{0.1em} （指导教师签名意味着对参赛队的行为和论文的真实性负责） 
-    }\par\vspace*{5ex}
+    }\par\vspace*{.25cm}
 
     {\zihao{-4}\songti
-      \hfill 日期：\CJKunderline{\hspace*{.5em}\clist_item:Nn \l_cumcm_date_clist{1}\hspace*{.5em}}年 \CJKunderline{\hspace*{.5em}\clist_item:Nn \l_cumcm_date_clist{2}\hspace*{.5em}}月\CJKunderline{\hspace*{.5em}\clist_item:Nn \l_cumcm_date_clist{3}\hspace*{.5em}}日
-    }\par\vspace*{5ex}
+      \hfill 日期：\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_date_clist{1}\hspace*{1em}}年 \CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_date_clist{2}\hspace*{1em}}月\CJKunderline{\hspace*{1em}\clist_item:Nn \l_cumcm_date_clist{3}\hspace*{1em}}日
+    }\par\vspace*{.2cm}
 
     {\kaishu\zihao{-4}\bfseries\noindent
       （请勿改动此页内容和格式。此承诺书打印签名后作为纸质论文的封面，注意电子版论文中不得出现此页。以上内容请仔细核对，如填写错误，论文可能被取消评奖资格。）
@@ -98,25 +104,28 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 
   \cs_new:Npn \cumcm_numberpage: {
     \titlepage 
-    \vspace*{1ex}\noindent
+    \vspace*{0.7ex}\noindent
     {\songti\zihao{-4}
       \pbox{赛区评阅编号：\\[-5pt]（由赛区填写）}\rule[0pt]{4.726cm}{0.5pt}
       \pbox{全国评阅编号：\\[-5pt]（全国组委会填写）}\rule[0pt]{4.726cm}{0.5pt}
     }\par 
 
-    \noindent\rule[0pt]{\textwidth}{1pt} 
-
+    \noindent\rule[0pt]{\textwidth}{1pt} \mode_leave_vertical:
+    \vspace*{-.15cm}
     \begin{center}
-    {\zihao{-3}\heiti{\bfseries\int_use:N \c_sys_year_int}年高教社杯全国大学生数学建模竞赛} \par \vspace*{2ex}
-    {\zihao{3}\bfseries\songti\makebox[9em]{编\hfill 号\hfill 专\hfill 用\hfill 页} \par}
-    \end{center}\par\vspace*{5ex}
+    {\zihao{-3}\hspace*{1.48cm}\heiti{\bfseries\int_use:N \c_sys_year_int}年高教社杯全国大学生数学建模竞赛} \par \vspace*{.3cm}
+    {\zihao{3}\bfseries\songti\makebox[7.2em]{\hspace*{0.17em}编\hfill 号\hfill 专\hfill 用\hfill 页} \par}
+    \end{center}\par\vspace*{3ex}
 
     \begin{center}\songti\zihao{4}
-    \hspace*{-7.7em}赛区评阅记录（可供赛区评阅时使用）：\par\vspace*{-.05ex}
+    \hspace*{-9.5em}赛区评阅记录（可供赛区评阅时使用）：\par
     % \begin{tblr}{|Q[c,1.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|Q[m,2.8em]|}
-      \begin{tabular}{|p{1.8em}|*{6}{p{2.8em}|}}
+      \hspace*{-2.3em}
+      \renewcommand\arraystretch{3}
+      \begin{tabular}{|m{1.8em}|*{6}{m{2.8em}|}}
       \hline 
-       \makecell[c]{评\\[-4pt]阅\\[-2pt]人} & & & & & & \\
+        \makecell[c]{评\\[-8pt]阅\\[-8pt]人}
+       & & & & & & \\
        \hline 
        \makecell[c]{备\\[-4pt]注} & & & & & & \\
        \hline
@@ -146,7 +155,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 \keys_define:nn { cumcm }
 { 
   info.meta:nn = { cumcm / info } {#1},
-  titlepage.bool_set:N       =      \l_cumcm_titlepage_bool       ,
+  titlepage.bool_set:N =  \l_cumcm_titlepage_bool,
+  commitmentpage.bool_set:N = \l_cumcm_commitmentpage_bool,
+  numberpage.bool_set:N = \l_cumcm_numberpage_bool
 }
 
 \keys_define:nn{ cumcm / info}
@@ -165,7 +176,9 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
     date = {\int_use:N\c_sys_year_int,\int_use:N\c_sys_month_int,\int_use:N\c_sys_day_int},
     title = {全国大学生数学建模竞赛 \LaTeX{} 论文模板},
   },
-  titlepage  = true
+  titlepage  = true,
+  commitmentpage = true,
+  numberpage = true
 }
 
 
@@ -173,9 +186,16 @@ Just choose `xelatex', no `pdflatex' or `latex' and so on.}
 {
   \bool_if:NT \l_cumcm_titlepage_bool 
   {
-    \cumcm_commit: 
-    \cumcm_numberpage: 
+    \bool_if:NT \l_cumcm_commitmentpage_bool 
+    {
+      \cumcm_commit: 
+    }
+    \bool_if:NT \l_cumcm_numberpage_bool
+    {
+      \cumcm_numberpage: 
+    }
   }
+  
   \pagestyle{plain}
   \begin{center}\zihao{3}\heiti
     \tl_use:N \l_cumcm_title_tl
